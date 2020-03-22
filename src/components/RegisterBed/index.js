@@ -36,8 +36,10 @@ export const RegisterBed = () => {
   };
 
   const handleScan = ( id ) => {
-    setBedId(id);
-    setCamera(false);
+    if(id) {
+      setBedId(id);
+      setCamera(false);
+    }
   };
 
   return (
