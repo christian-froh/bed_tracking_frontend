@@ -16,6 +16,7 @@ const REGISTER_BED = gql`
 
 const RegisterBed = () => {
   const [id, setId] = useState("");
+  const [bedId, setBedId] = useState("");
   const [registerBed, { data }] = useMutation(REGISTER_BED);
 
   const handleClick = () => {
@@ -29,9 +30,11 @@ const RegisterBed = () => {
     <>
       <QrReader
         delay={300}
-        onScan={setId}
+        onScan={setBedId}
         style={{ width: '100%' }}
       />
+
+      <span>{bedId}</span>
 
       <button onClick={handleClick}>Register bed</button>
       {id && <QRCode value={id} />}
